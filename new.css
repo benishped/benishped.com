@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 body {
     font-family: 'Times New Roman', Times, serif;
@@ -11,7 +12,6 @@ nav {
     overflow: hidden;
     padding: 10px 20px;
     position: sticky;
-    
 }
 
 nav img {
@@ -41,8 +41,23 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #3c5165;
+ background-color:#162432 ;
+    transition: all 1s ease;
     scale: 1.2;
+}
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::before {
+    width: 100%;
 }
 
 .active {
@@ -86,6 +101,7 @@ color: #3c5165;
 .veqori:hover{
     background-color: #3c51655f;
     scale: 1.1;
+    transition: all 1s ease-in-out;
 }
 .veqori img{
     width: 15%;
@@ -119,14 +135,20 @@ color: #3c5165;
     padding-top: 5%;
 }
 #aboutus p:hover{
-    scale: 1.2;
+    scale: 1.1;
     filter: drop-shadow(7px 8px 9px #7f99c8);
+    transition: all 1.5s ease-in-out;
 }
-.truck{
-    width: 20%;
-    height: 20%;
-   margin-left: 88%; 
-   mix-blend-mode: color-burn;
+#aboutus a{
+   font-size: 13px;
+   padding-top: 8px;
+   padding-left: 90%;
+   text-decoration: none;
+   color: #ffffff;
+}
+#aboutus a:hover{
+    color: #162432;
+    transition:0.5s ease-in;
 }
 #services{
     width: 100%;
@@ -147,6 +169,28 @@ padding-left: 12%;
     color: #9fabb7;
     padding-top: 10%;
 }
+
+.truck{
+    width: 100%;
+    background-color: #515e6c;
+}
+.truck img{
+    width: 20%;
+    height: 20%;
+    mix-blend-mode: color-burn;
+    background-color: transparent;
+    animation: moveImage 7s infinite alternate; 
+    transform: scaleX(-1);
+
+}
+@keyframes moveImage {
+    0% {
+        transform: translateX(0) ;
+    }
+    100% {
+        transform: translateX(400%) ; 
+    }
+}
 @media screen and (max-width: 600px) {
     nav img {
         float: none;
@@ -164,7 +208,7 @@ padding-left: 12%;
         display: inline-block;
         margin-left: 0;
     }
-      
+   
  
     .icon {
       flex-direction: column;
@@ -179,11 +223,11 @@ padding-left: 12%;
   
     .veqori h1 {
       font-size: 20px;
-  
+    }
     .veqori p{
       font-size: 14px; 
     }
-  }
+  
    }
 
   .hero {
@@ -237,6 +281,7 @@ padding-left: 12%;
     background-color: #3c5165;
     border: #2c3e50 solid 2px;
     scale: 1.1;
+    transition: all 1s ease;
 }
 
 @media (max-width: 768px) {
@@ -340,6 +385,9 @@ padding-left: 12%;
     #services h5{
         font-size: 18px;
         }
+        #aboutus a{
+            font-size: 16px;
+         }
   }
  #contact{
     background-color: #2c3e50;
@@ -359,6 +407,8 @@ padding-left: 12%;
 }
 .container:hover{
     scale: 1.1;
+    transition: all 1s ease-in;
+    border-radius: 10px;
 }
 form {
     max-width: 500px;
@@ -391,6 +441,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #3c5165;
     border: #162432 solid 1.5px;
+    transition: all 1s ease;
 }
 
 #status {
@@ -449,6 +500,15 @@ footer {
     width: 10%;
     height: 10%;
 }
+.footer-right img:hover{
+    scale: 1.1;
+    mix-blend-mode: soft-light;
+    transition: all 0.3s ease-in;
+}
+.footer-left a:hover{
+    color: #162432;
+    transition: 0.5s ease-in;
+}
   @media screen and (max-width: 768px) {
     footer {
       flex-direction: column;
@@ -499,3 +559,97 @@ footer {
   #myButtoni:hover {
     background-color: #0C356A; 
   }
+
+
+#slider{
+    background-color: #3c5165;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.mySlides {display: none}
+
+#slider img{vertical-align: middle;}
+
+.slideshow-container {
+  max-width: 1400px;
+  position: relative;
+  margin: auto;
+  width:100%;
+
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: rgb(53, 62, 81);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: #162432;
+  transition: 1s ease;
+  color: #ffffff;
+}
+
+.numbertext {
+  color: #000000;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+.text {
+    color: #ffffff;
+    font-size: 20px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  .text:hover{
+    scale: 0.99;
+    transition: 0.8s ease-in-out all;
+    background-color: #1624327d;
+  }
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #162432;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@media only screen and (max-width: 300px) {
+  .prev, .next, .text{font-size: 11px}
+}
